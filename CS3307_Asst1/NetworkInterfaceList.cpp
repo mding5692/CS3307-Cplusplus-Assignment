@@ -62,12 +62,13 @@ NetworkInterfaceList::NetworkInterfaceList() {
 		
 		while (!networkFile.eof()) {
 			getline(networkFile, line);
+			printf(line.c_str());
+			
+			// Stores network interface name + MAC address in a Network Interface object
+			// and adds to networkInterfaceList vector attribute
+			//NetworkInterface networkInter(networkList[i], line);
+			//networkInterfaceList.push_back(networkInter);
 		}
-		
-		// Stores network interface name + MAC address in a Network Interface object
-		// and adds to networkInterfaceList vector attribute
-		//NetworkInterface networkInter(networkList[i], string(line));
-		//networkInterfaceList.push_back(networkInter);
 	}
 	
 }
