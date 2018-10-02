@@ -10,6 +10,11 @@ using namespace std;
 /* Process class constructor
  * Takes in arguments which are all strings: process id, name, owner id, parent process id and state 
  */
+Process::Process() {}
+
+/* Process class constructor
+ * Takes in arguments which are all strings: process id, name, owner id, parent process id and state 
+ */
 Process::Process(string pid, string name, string ownerid, string ppid, string pstate) {
 	processID = pid;
 	processName = name;
@@ -58,7 +63,3 @@ string Process::getState() {
 	return state;
 }
 
-int main() {
-	Process p("0","1","5","7","9");
-	p.to_string();
-}

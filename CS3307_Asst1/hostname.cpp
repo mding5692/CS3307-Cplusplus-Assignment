@@ -37,8 +37,3 @@ string HostName::getHostName() {
 	return hostName;
 }
 
-// Test
-int main() {
-	HostName hN;
-	hN.to_string();
-}

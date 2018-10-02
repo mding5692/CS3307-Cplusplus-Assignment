@@ -39,13 +39,9 @@ long int MemoryInfo::getFreeRam() {
 * No parameters but returns strings of either the memory details or an empty string if couldnt grab
 */
  string MemoryInfo::to_string() {
-	 string resultString = "Total ram: " + std::to_string(totalRam) + "\nFree ram: " + std::to_string(freeRam) + "\n";
+	 string resultString = "Total ram: " + std::to_string(totalRam) + "kb\nFree ram: " + std::to_string(freeRam) + "kb\n";
 	 printf(resultString.c_str());
 	 return resultString;
  }
 
-int main() {
-	MemoryInfo mInfo;
-	mInfo.to_string();
-}
 

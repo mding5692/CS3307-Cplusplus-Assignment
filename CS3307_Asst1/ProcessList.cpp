@@ -98,24 +98,30 @@ ProcessList::ProcessList() {
  * like all the processes inside this list, takes no parameters
  */
  string ProcessList::to_string() {
-	 
-	 
+	 string returnStr = string();
+	 for (unsigned i = 0; i < processList.size(); i++) {
+		 string processDetails = processList[i].to_string();
+		 returnStr += processDetails;
+	 }
+	 return returnStr;
  }
  
  /* getProcessByID() function
   * Returns a Process object with the same id as the parameter
   */
-  Process ProcessList::getProcessByID(string pid) {
-	  
+ Process ProcessList::getProcessByID(string pid) {
+	Process process;
+	for (unsigned i = 0; i < processList.size(); i++) {
+		 if (processList[i].getProcessID() == pid) {
+			 process = processList[i];
+		 }
+	 }
+	return process;
   }
 
 /* getProcessList() function
  * Getter method for the processList attribute, contains Process objects
  */
- vector<Process> ProcessList::getProcessList() {
+vector<Process> ProcessList::getProcessList() {
 	return processList;
-}
-
-int main() {
-	ProcessList pList;
 }

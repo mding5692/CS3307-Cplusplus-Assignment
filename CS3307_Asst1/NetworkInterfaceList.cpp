@@ -105,7 +105,3 @@ vector<NetworkInterface> NetworkInterfaceList::getListOfNetworkInterfaces() {
 	return networkInterfaceList;
 }
 
-int main() {
-	NetworkInterfaceList nList;
-	nList.to_string();
-}

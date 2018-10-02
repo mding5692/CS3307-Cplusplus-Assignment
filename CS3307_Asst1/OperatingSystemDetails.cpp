@@ -97,7 +97,3 @@ string OperatingSystemDetails::getUpTime() {
 	return uptime;
 }
 
-int main() {
-	OperatingSystemDetails osDets;
-	osDets.to_string();
-}

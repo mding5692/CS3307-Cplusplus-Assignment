@@ -77,9 +77,3 @@ string ProcInfo::getSystemLoad() {
 	return systemLoadStr;
 }
  
- int main() {
-	 ProcInfo procInfo;
-	 procInfo.to_string();
-	 
-	 printf(procInfo.getSystemLoad().c_str());
- }
