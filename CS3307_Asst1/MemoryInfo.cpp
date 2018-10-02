@@ -1,5 +1,5 @@
 /* Author: Linsheng Ding, 250757782
- * Description: MemoryInfo class, gets memory details
+ * Description: MemoryInfo class implementation, gets memory details
  * Date: Oct. 1, 2018
  */
  
@@ -8,19 +8,9 @@
 #include <iostream>
 #include <string>
 #include <sys/sysinfo.h>
+#include "MemoryInfo.h"
 
 using namespace std;
-
-class MemoryInfo {
-	public:
-		MemoryInfo();
-		string to_string();
-		long int getTotalRam();
-		long int getFreeRam();
-	private:
-		long int totalRam;
-		long int freeRam;
-};
 
 /* Constructor for MemoryInfo class
  * Grabs attributes for storing memory information using sysInfo()
@@ -62,3 +52,4 @@ int main() {
 	MemoryInfo mInfo;
 	mInfo.to_string();
 }
+

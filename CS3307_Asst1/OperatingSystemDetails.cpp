@@ -1,5 +1,6 @@
 /* Author: Linsheng Ding, 250757782
- * Description: OperatingSystemDetails class, gets OS name, release, version, machine data and system uptime
+ * Description: OperatingSystemDetails class implementation, 
+ * Gets OS name, release, version, machine data and system uptime
  * Date: Oct. 1, 2018
  */
  
@@ -9,25 +10,9 @@
 #include <string>
 #include <sys/utsname.h>
 #include <sys/sysinfo.h>
+#include "OperatingSystemDetails.h"
 
 using namespace std;
-
-class OperatingSystemDetails {
-	public:
-		OperatingSystemDetails();
-		string to_string();
-		string getSysName();
-		string getRelease();
-		string getVersion();
-		string getMachine();
-		string getUpTime();
-	private:
-		string sysName = string();
-		string release = string();
-		string version = string();
-		string machine = string();
-		string uptime = string();
-};
 
 /* Constructor function for OperatingSystemDetails class
  * Sets attributes like system name or release

@@ -1,5 +1,6 @@
 /* Author: Linsheng Ding, 250757782
- * Description: ProcInfo class, gets processor details and system load
+ * Description: ProcInfo class implementation, 
+ * Gets processor details and system load
  * Date: Oct. 1, 2018
  */
  
@@ -9,25 +10,9 @@
 #include <fstream>
 #include <string>
 #include <sys/sysinfo.h>
+#include "ProcInfo.h"
 
 using namespace std;
-
-class ProcInfo {
-	public:
-		ProcInfo();
-		string to_string();
-		string getVendor();
-		string getModelName();
-		string getClockSpeed();
-		string getSystemLoad();
-	private:
-		string vendor = string();
-		string modelName = string();
-		string clockSpeed = string();
-		string oneMinLoad = string();
-		string fiveMinLoad = string();
-		string fifteenMinLoad = string();
-};
 
 /* Constructor for ProcInfo class
  * Grabs attributes like processor information
