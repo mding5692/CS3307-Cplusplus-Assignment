@@ -4,11 +4,6 @@
  * Date: Oct. 1, 2018
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string>
-#include <iostream>
 #include "HostName.h"
 
 using namespace std;

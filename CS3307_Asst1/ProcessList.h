@@ -11,7 +11,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Process.h"
+#include <fstream>
+#include <dirent.h>
+#include "Process.cpp"
 
 class ProcessList {
 	public:

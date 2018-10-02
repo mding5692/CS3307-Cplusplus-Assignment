@@ -3,12 +3,6 @@
  * Date: Oct. 1, 2018
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <dirent.h>
 #include "Process.h"
 
 using namespace std;
@@ -29,7 +23,9 @@ Process::Process(string pid, string name, string ownerid, string ppid, string ps
  * Takes no parameters
  */
 string Process::to_string() {
-	
+	string returnStr = processID + "\n" + processName + "\nOwner ID: " + ownerID + "\nParent ID: " + parentProcessID + "\n" + state;
+	cout << returnStr << endl;
+	return returnStr;
 }
 
 /* getProcessID() - getter method for processID
@@ -60,4 +56,9 @@ string Process::getParentProcessID() {
  */ 
 string Process::getState() {
 	return state;
+}
+
+int main() {
+	Process p("0","1","5","7","9");
+	p.to_string();
 }

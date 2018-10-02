@@ -1,12 +1,9 @@
 /* Author: Linsheng Ding, 250757782
- * Description: NetworkInterface class, used to store network interface details
+ * Description: NetworkInterface class implementation, 
+ * Used to store network interface details
  * Date: Oct. 1, 2018
  */
  
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <string>
 #include "NetworkInterface.h"
 
 using namespace std;

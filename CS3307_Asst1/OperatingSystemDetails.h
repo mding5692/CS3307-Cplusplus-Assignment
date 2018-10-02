@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <sys/utsname.h>
+#include <sys/sysinfo.h>
 
 class OperatingSystemDetails {
 	public:

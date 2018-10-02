@@ -12,6 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sys/sysinfo.h>
 
 class ProcInfo {
 	public:

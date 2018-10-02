@@ -4,12 +4,6 @@
  * Date: Oct. 1, 2018
  */
  
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <sys/utsname.h>
-#include <sys/sysinfo.h>
 #include "OperatingSystemDetails.h"
 
 using namespace std;

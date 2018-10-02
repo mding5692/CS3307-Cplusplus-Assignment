@@ -4,12 +4,6 @@
  * Date: Oct. 1, 2018
  */
  
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sys/sysinfo.h>
 #include "ProcInfo.h"
 
 using namespace std;

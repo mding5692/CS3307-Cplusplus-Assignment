@@ -1,13 +1,9 @@
 /* Author: Linsheng Ding, 250757782
- * Description: MemoryInfo class implementation, gets memory details
+ * Description: MemoryInfo class implementation
+ * Gets and stores memory details
  * Date: Oct. 1, 2018
  */
  
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <sys/sysinfo.h>
 #include "MemoryInfo.h"
 
 using namespace std;

@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <dirent.h>
 
 class Process {
 	public:

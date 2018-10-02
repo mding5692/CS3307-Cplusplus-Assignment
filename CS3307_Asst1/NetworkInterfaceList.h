@@ -11,8 +11,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include <dirent.h>
-#include "NetworkInterface.h"
+#include "NetworkInterface.cpp"
 
 class NetworkInterfaceList {
 	public:

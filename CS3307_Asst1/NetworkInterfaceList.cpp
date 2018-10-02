@@ -3,13 +3,6 @@
  * Date: Oct. 1, 2018
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include "NetworkInterface.h"
 #include "NetworkInterfaceList.h"
 
 using namespace std;
@@ -62,12 +55,11 @@ NetworkInterfaceList::NetworkInterfaceList() {
 		
 		while (!networkFile.eof()) {
 			getline(networkFile, line);
-			printf(line.c_str());
 			
 			// Stores network interface name + MAC address in a Network Interface object
 			// and adds to networkInterfaceList vector attribute
-			//NetworkInterface networkInter(networkList[i], line);
-			//networkInterfaceList.push_back(networkInter);
+			NetworkInterface networkInter(networkList[i], line);
+			networkInterfaceList.push_back(networkInter);
 		}
 	}
 	
@@ -80,9 +72,9 @@ NetworkInterfaceList::NetworkInterfaceList() {
 string NetworkInterfaceList::to_string() {
 	string resultStr = string();
 	for (unsigned i = 0; i < networkInterfaceList.size(); i++) {
-		//string networkDetails = networkInterfaceList[i].to_string();
-		//cout << networkDetails << endl;
-		//resultStr += networkDetails;
+		string networkDetails = networkInterfaceList[i].to_string();
+		cout << networkDetails << endl;
+		resultStr += networkDetails;
 	}
 	return resultStr;
 }
@@ -90,25 +82,30 @@ string NetworkInterfaceList::to_string() {
  /* getNetworkAddressFor() function
  * Return a MAC address string for a network interface name
 */
-string getNetworkAddressFor(string networkName) {
-	
+string NetworkInterfaceList::getNetworkAddressFor(string networkName) {
+	string resultStr = "Not found";
+	//for (unsigned i = 0; i < networkInterfaceList.size(); i++) {
+		//if (networkInterfaceList[i].get
+	//}
+	return resultStr;
 }
 	
  /* getNetworkNameFor() function
  * Return a network interface string for a mac address string
 */		
-string getNetworkNameFor(string networkAddress) {
-	
+string NetworkInterfaceList::getNetworkNameFor(string networkAddress) {
+	return string();
 }
 
 /* getListOfNetworkInterfaces()
-* Getter method for the vector of NetworkInterface objects for usage and take no parameters
+* Getter method for the vector of NetworkInterface objects for usage 
+* and take no parameters
 */
-vector<NetworkInterface> getListOfNetworkInterfaces() {
-	
+vector<NetworkInterface> NetworkInterfaceList::getListOfNetworkInterfaces() {
+	return networkInterfaceList;
 }
 
 int main() {
 	NetworkInterfaceList nList;
-	//nList.to_string();
+	nList.to_string();
 }

@@ -3,15 +3,7 @@
  * Used to store Process objects
  * Date: Oct. 1, 2018
  */
- 
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <fstream>
-#include <dirent.h>
-#include "Process.h"
+
 #include "ProcessList.h"
  
 using namespace std;
@@ -96,8 +88,8 @@ ProcessList::ProcessList() {
 		
 		// Store process data in Process objects and adds to 
 		// vector of Process objects
-		//Process process(pid, pname, ownerid, ppid, pstate);
-		//processList.push_back(process);
+		Process process(pid, pname, ownerid, ppid, pstate);
+		processList.push_back(process);
 	}
 }
 
