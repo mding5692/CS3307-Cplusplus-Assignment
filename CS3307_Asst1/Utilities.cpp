@@ -56,7 +56,6 @@ void printProcessList() {
 void printNetworkInterfaceList() {
 	NetworkInterfaceList nList;
 	nList.to_string();
-	
 }
 
 /* Utility function printOSDetails()
