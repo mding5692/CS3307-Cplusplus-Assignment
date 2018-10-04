@@ -12,7 +12,8 @@ using namespace std;
  * Grabs attributes for storing memory information using sysInfo()
  */
 MemoryInfo::MemoryInfo() {
-	struct sysinfo systemInfo;
+	// Grabs the system info using sysInfo() function
+	struct sysinfo systemInfo; 
     sysinfo(&systemInfo);
     totalRam = systemInfo.totalram;
     freeRam = systemInfo.freeram;
@@ -40,7 +41,6 @@ long int MemoryInfo::getFreeRam() {
 */
  string MemoryInfo::to_string() {
 	 string resultString = "Total ram: " + std::to_string(totalRam) + "kb\nFree ram: " + std::to_string(freeRam) + "kb\n";
-	 printf(resultString.c_str());
 	 return resultString;
  }
 

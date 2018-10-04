@@ -25,7 +25,6 @@ HostName::HostName() {
 * No parameters but returns a string of either the hostname or an empty string if couldnt grab
 */
 string HostName::to_string() {
-	cout << "Hostname: " << hostName << endl;
 	return hostName;
 }
 

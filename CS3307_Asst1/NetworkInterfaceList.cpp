@@ -22,7 +22,7 @@ NetworkInterfaceList::NetworkInterfaceList() {
     dirPointer = opendir(DIR_NAME.c_str());
     // Error handling, in case can't open directory
     if (dirPointer == NULL) {
-		printf("ERROR: Can not open %s \n", DIR_NAME.c_str());
+		cout << "ERROR: Can not open directory" << endl;
 		exit(0);
 	}
 	
@@ -30,15 +30,18 @@ NetworkInterfaceList::NetworkInterfaceList() {
 	// Error handling, in case can't read directory
 	while ((entryPointer = readdir(dirPointer))) {
 		if (entryPointer == NULL) {
-			printf("ERROR: Can not read %s \n", DIR_NAME.c_str());
+			cout << "ERROR: Can not read directory" << endl;
 			exit(0);
 		}
 		string networkName = string(entryPointer->d_name);
 		// Grabs and stores networkName in the networkList string vector for later use
 		// and removes the current and parent directory reference
 		if ((networkName.compare(".") == 0) || (networkName.compare("..") == 0)) continue;
+		
+		// Doesnt add to vector of network names if its a network name
+		// thats already been added
+		if (find(networkList.begin(), networkList.end(), networkName) != networkList.end()) continue;
 		networkList.push_back(networkName);
-		printf("Accessing %s directory\n", entryPointer->d_name);
 	}
     // Closes directory when done
     closedir(dirPointer);
@@ -47,20 +50,17 @@ NetworkInterfaceList::NetworkInterfaceList() {
     for (unsigned i = 0; i < networkList.size(); i++) {
 		// Creates the file name that has the MAC address information
 		string networkAddrFileName = DIR_NAME + networkList[i] + ADDR_PATH;
-		printf("Accessing file: %s \n", networkAddrFileName.c_str());
 		
 		// Access that file and reads the line with MAC Address
 		ifstream networkFile(networkAddrFileName.c_str());
 		string line = string();
 		
-		while (!networkFile.eof()) {
-			getline(networkFile, line);
+		getline(networkFile, line);
 			
-			// Stores network interface name + MAC address in a Network Interface object
-			// and adds to networkInterfaceList vector attribute
-			NetworkInterface networkInter(networkList[i], line);
-			networkInterfaceList.push_back(networkInter);
-		}
+		// Stores network interface name + MAC address in a Network Interface object
+		// and adds to networkInterfaceList vector attribute
+		NetworkInterface networkInter(networkList[i], line);
+		networkInterfaceList.push_back(networkInter);
 	}
 	
 }
@@ -73,28 +73,9 @@ string NetworkInterfaceList::to_string() {
 	string resultStr = string();
 	for (unsigned i = 0; i < networkInterfaceList.size(); i++) {
 		string networkDetails = networkInterfaceList[i].to_string();
-		cout << networkDetails << endl;
 		resultStr += networkDetails;
 	}
 	return resultStr;
-}
-
- /* getNetworkAddressFor() function
- * Return a MAC address string for a network interface name
-*/
-string NetworkInterfaceList::getNetworkAddressFor(string networkName) {
-	string resultStr = "Not found";
-	//for (unsigned i = 0; i < networkInterfaceList.size(); i++) {
-		//if (networkInterfaceList[i].get
-	//}
-	return resultStr;
-}
-	
- /* getNetworkNameFor() function
- * Return a network interface string for a mac address string
-*/		
-string NetworkInterfaceList::getNetworkNameFor(string networkAddress) {
-	return string();
 }
 
 /* getListOfNetworkInterfaces()

@@ -10,11 +10,6 @@ using namespace std;
 /* Process class constructor
  * Takes in arguments which are all strings: process id, name, owner id, parent process id and state 
  */
-Process::Process() {}
-
-/* Process class constructor
- * Takes in arguments which are all strings: process id, name, owner id, parent process id and state 
- */
 Process::Process(string pid, string name, string ownerid, string ppid, string pstate) {
 	processID = pid;
 	processName = name;
@@ -29,7 +24,6 @@ Process::Process(string pid, string name, string ownerid, string ppid, string ps
  */
 string Process::to_string() {
 	string returnStr = processID + "\n" + processName + "\nOwner ID: " + ownerID + "\nParent ID: " + parentProcessID + "\n" + state;
-	cout << returnStr << endl;
 	return returnStr;
 }
 

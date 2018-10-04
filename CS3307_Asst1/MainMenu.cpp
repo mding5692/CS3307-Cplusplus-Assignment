@@ -1,14 +1,71 @@
 /* Author: Linsheng Ding, 250757782
- * Description: Utilities class, used for accessing 
- * each of the utilities with their to_string() function
+ * Description: MainMenu utility implementation, used for accessing 
+ * each of the utilities with their to_string() function with
+ * a commandline menu
  * Date: Oct. 1, 2018
  */
  
-#include "Utilities.cpp"
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <dirent.h>
+#include "HostName.cpp"
+#include "MemoryInfo.cpp"
+#include "NetworkInterfaceList.cpp"
+#include "OperatingSystemDetails.cpp"
+#include "ProcInfo.cpp"
+#include "ProcessList.cpp"
  
-// Below are functions that are called before their declaration
-void chooseNetworkInterfaceOptions();
-void chooseProcessesOptions();
+/* Utility function printHostName()
+ * Prints out the host name using to_string()
+ */
+void printHostName() {
+	HostName hostname;
+	cout << hostname.to_string() << endl;
+}
+
+/* Utility function printMemoryInfo()
+ * Prints out memory information using to_string()
+ */
+void printMemoryInfo() {
+	MemoryInfo memoryInfo;
+	cout << memoryInfo.to_string() << endl;
+}
+
+/* Utility function printProcInfo()
+ * Prints out the processor info using to_string()
+ */
+void printProcInfo() {
+	ProcInfo procInfo;
+	cout << procInfo.to_string() << endl;
+}
+
+/* Utility function printProcessList()
+ * Prints out list of processes using to_string()
+ */
+void printProcessList() {
+	ProcessList pList;
+	cout << pList.to_string() << endl;
+}
+
+/* Utility function printNetworkInterfaceList()
+ * Prints out network interfaces using to_string()
+ */
+void printNetworkInterfaceList() {
+	NetworkInterfaceList nList;
+	cout << nList.to_string() << endl;
+}
+
+/* Utility function printOSDetails()
+ * Prints out OS details using to_string()
+ */
+void printOSDetails() {
+	OperatingSystemDetails osDetails;
+	cout << osDetails.to_string() << endl;
+} 
 
  /* printInstructions() function
   * Prints the instructions for selecting utilities
@@ -62,13 +119,13 @@ void printInstructions() {
 			break;;
 		 case '5':
 			cout << "\nChecking out network interfaces... \n" << endl;
-			chooseNetworkInterfaceOptions();
+			printNetworkInterfaceList();
 			cout << "\n" << endl;
 			waitForInput();
 			break;
 		case '6':
 			cout << "\nChecking out processes... \n" << endl;
-			chooseProcessesOptions();
+			printProcessList();
 			cout << "\n" << endl;
 			waitForInput();
 			break;
@@ -81,104 +138,6 @@ void printInstructions() {
 			break;
 	 }
  }
- 
- /* showNetworkInterfaceOptions() function
-  * Prints the options to do with Network Interfaces
-  */
- void showNetworkInterfaceOptions() {
-	 cout << "\nSelect a number corresponding to below options:" << endl;
-	 cout << "1. Show all the network interface names" << endl;
-	 cout << "2. Show network interface based on a name" << endl;
-	 cout << "3. Show network interface based on MAC Address" << endl;
-	 cout << "4. Show all info to do with Network Interfaces" << endl;
-	 cout << "5. Go back" << endl;
- }
- 
- /* chooseNetworkInterfaceOptions()
-  * Waits for input from user for choosing an option to do with 
-  * network interfaces
-  */
-void chooseNetworkInterfaceOptions() {
-	showNetworkInterfaceOptions();
-	
-	// Takes input
-	 char choice;
-	 cin >> choice;
-	 
-	 // Chooses to loop and print result depending on option
-	 switch(choice) {
-		 case '1':
-			cout << "\n" << endl;
-			chooseNetworkInterfaceOptions();
-			break;
-		 case '2':
-			cout << "\n" << endl;
-			chooseNetworkInterfaceOptions();
-			break;
-		 case '3':
-			cout << "\n" << endl;
-			chooseNetworkInterfaceOptions();
-			break;
-		 case '4':
-			cout << "\n" << endl;
-			printNetworkInterfaceList();
-			chooseNetworkInterfaceOptions();
-			break;;
-		 case '5':
-			cout << "\nHeading back \n" << endl;
-			break;
-		 default: 
-			cout << "\nTry again. \n" << endl;
-			chooseNetworkInterfaceOptions();
-			break;
-	 }
-}
-
- /* showProcessesOptions() function
-  * Prints the options to do with Processes
-  */
- void showProcessesOptions() {
-	 cout << "\nSelect a number corresponding to below options:" << endl;
-	 cout << "1. Show all the process ids" << endl;
-	 cout << "2. Shows process info given a process id" << endl;
-	 cout << "3. Show all info to do with processes" << endl;
-	 cout << "4. Go back" << endl;
- }
-
-/* chooseProcessesOptions() function
- * Shows and waits for input for what to do processes
- */
-void chooseProcessesOptions() {
-	showProcessesOptions();
-	
-		// Takes input
-	 char choice;
-	 cin >> choice;
-	 
-	 // Chooses to loop and print result depending on option
-	 switch(choice) {
-		 case '1':
-			cout << "\n" << endl;
-			chooseProcessesOptions();
-			break;
-		 case '2':
-			cout << "\n" << endl;
-			chooseProcessesOptions();
-			break;
-		 case '3':
-			cout << "\n" << endl;
-			printProcessList();
-			chooseProcessesOptions();
-			break;
-		 case '4':
-			cout << "\nHeading back \n" << endl;
-			break;
-		 default: 
-			cout << "\nTry again. \n" << endl;
-			chooseProcessesOptions();
-			break;
-	 }
-}
  
 /* Main function
  * For starting the whole menu loop

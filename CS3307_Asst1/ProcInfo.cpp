@@ -40,7 +40,6 @@ using namespace std;
 */
  string ProcInfo::to_string() {
 	 string resultString = vendor + "\n" + modelName + "\n" + clockSpeed + "\n1 min load: " + oneMinLoad + "\n5 min load: " + fiveMinLoad + "\n15 min load: " + fifteenMinLoad + "\n";
-	 printf(resultString.c_str());
 	 return resultString;
  }
  

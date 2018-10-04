@@ -1,9 +1,9 @@
 /* Author: Linsheng Ding, 250757782
- * Description: Utilities class, used for accessing 
+ * Description: Utilities implementation, used for accessing 
  * each of the utilities with their to_string() function
  * Date: Oct. 1, 2018
  */
- 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -22,8 +22,8 @@
  * Prints out the host name using to_string()
  */
 void printHostName() {
-	HostName hostName;
-	hostName.to_string();
+	HostName hostname;
+	hostname.to_string();
 }
 
 /* Utility function printMemoryInfo()

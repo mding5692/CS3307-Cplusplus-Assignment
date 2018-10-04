@@ -25,7 +25,7 @@ ProcessList::ProcessList() {
      
     // Error handling, in case can't open directory
     if (dirPtr == NULL) {
-		printf("ERROR: Can not open %s \n", PROC_DIR_NAME.c_str());
+		cout << "ERROR: Can not open directory" << endl;
 		exit(0);
 	}
 	
@@ -33,7 +33,7 @@ ProcessList::ProcessList() {
 	// Error handling, in case can't read directory
 	while ((entryPtr = readdir(dirPtr))) {
 		if (entryPtr == NULL) {
-			printf("ERROR: Can not read %s \n", PROC_DIR_NAME.c_str());
+			cout << "ERROR: Can not read directory" << endl;
 			exit(0);
 		}
 		string processDirName = string(entryPtr->d_name);
@@ -46,7 +46,6 @@ ProcessList::ProcessList() {
 		if (processDirName.find_first_not_of("0123456789") != string::npos) continue;
 		
 		processNameList.push_back(processDirName);
-		printf("Accessing process %s directory\n", entryPtr->d_name);
 	}
 	
 	// Closes directory when done
@@ -56,29 +55,31 @@ ProcessList::ProcessList() {
     for (unsigned i = 0; i < processNameList.size(); i++) {
 		// Creates the file name that has the process information
 		string procFilePath = PROC_DIR_NAME + processNameList[i] + PROC_STATUS_PATH;
-		printf("Accessing process file: %s \n", procFilePath.c_str());
 		
 		// Accesses that file
 		ifstream processFile(procFilePath.c_str());
 		string line = string();
 		
 		// Sets variables for saving process data
-		string pid = string();
+		string pid = "\nProcess ID: " + processNameList[i];
 		string pname = string();
 		string ownerid = string(); 
 		string ppid = string();
 		string pstate = string();
 		
+		// Checks if the line being referenced right now
+		// Is the right line containing info we need
+		// and then store it to the relevant variable name
 		while (!processFile.eof()) {
 			getline(processFile, line);
 			
-			if (line.find("Pid:") != string::npos) {
-				pid = line;
-			} else if (line.find("State:") != string::npos) {
+			if (line.find("State:") != string::npos) {
 				pstate = line;
 			} else if (line.find("PPid:") != string::npos) {
+				line.erase(line.find("PPid:"), 5);
 				ppid = line;
 			} else if (line.find("Uid:") != string::npos) {
+				line.erase(line.find("Uid:"), 4);
 				ownerid = line;
 			} else if (line.find("Name:") != string::npos) {
 				pname = line;
@@ -94,30 +95,17 @@ ProcessList::ProcessList() {
 }
 
 /* to_string() function
- * Used to print and return out a string of all attributes 
+ * Used to return out a string of all attributes 
  * like all the processes inside this list, takes no parameters
  */
  string ProcessList::to_string() {
 	 string returnStr = string();
 	 for (unsigned i = 0; i < processList.size(); i++) {
-		 string processDetails = processList[i].to_string();
+		 string processDetails = processList[i].to_string() + "\n";
 		 returnStr += processDetails;
 	 }
 	 return returnStr;
  }
- 
- /* getProcessByID() function
-  * Returns a Process object with the same id as the parameter
-  */
- Process ProcessList::getProcessByID(string pid) {
-	Process process;
-	for (unsigned i = 0; i < processList.size(); i++) {
-		 if (processList[i].getProcessID() == pid) {
-			 process = processList[i];
-		 }
-	 }
-	return process;
-  }
 
 /* getProcessList() function
  * Getter method for the processList attribute, contains Process objects

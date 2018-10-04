@@ -17,11 +17,11 @@ class MemoryInfo {
 	public:
 		MemoryInfo();
 		std::string to_string();
-		long int getTotalRam();
-		long int getFreeRam();
+		long getTotalRam();
+		long getFreeRam();
 	private:
-		long int totalRam;
-		long int freeRam;
+		long totalRam;
+		long freeRam;
 };
 
 #endif

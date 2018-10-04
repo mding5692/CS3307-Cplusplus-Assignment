@@ -23,7 +23,6 @@ NetworkInterface::NetworkInterface(string networkName, string address) {
 */
 string NetworkInterface::to_string() {
 	string resultStr = "Name: " + name + "\nMac address: " + macAddress + "\n";
-	printf(resultStr.c_str());
 	return resultStr;
 }
 

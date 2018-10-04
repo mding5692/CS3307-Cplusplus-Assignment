@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 #include <dirent.h>
 #include "NetworkInterface.cpp"
 
@@ -19,8 +20,6 @@ class NetworkInterfaceList {
 	public:
 		NetworkInterfaceList();
 		std::string to_string();
-		std::string getNetworkAddressFor(std::string networkName);
-		std::string getNetworkNameFor(std::string networkAddress);
 		std::vector<NetworkInterface> getListOfNetworkInterfaces();
 	private:
 		std::vector<NetworkInterface> networkInterfaceList;

@@ -19,7 +19,6 @@ class ProcessList {
 	public:
 		ProcessList();
 		std::string to_string();
-		Process getProcessByID(std::string pid);
 		std::vector<Process> getProcessList(); 
 	private:
 		std::vector<Process> processList;

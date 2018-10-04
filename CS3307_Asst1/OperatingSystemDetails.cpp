@@ -25,19 +25,19 @@ OperatingSystemDetails::OperatingSystemDetails() {
     machine = systemInfo.machine;
     
     // Declares constants to better calculate amount of seconds in a certain time period
-    const int SECONDS_IN_DAY = 86400;
-    const int SECONDS_IN_HOUR = 3600;
-    const int SECONDS_IN_MIN = 60;
+	const long SECONDS_IN_MIN = 60;
+	const long SECONDS_IN_HOUR = 3600;
+    const long SECONDS_IN_DAY = 86400;
     
     // Converts seconds into days:hrs:min:sec format using modulus
-    long int uptimeSeconds = systemInfoTime.uptime;
-    int days = uptimeSeconds / SECONDS_IN_DAY; 
-    uptimeSeconds = SECONDS_IN_DAY;
-    int hrs = uptimeSeconds / SECONDS_IN_HOUR; 
+    long uptimeSeconds = systemInfoTime.uptime;
+    long days = uptimeSeconds / SECONDS_IN_DAY; 
+    uptimeSeconds %= SECONDS_IN_DAY;
+    long hrs = uptimeSeconds / SECONDS_IN_HOUR; 
     uptimeSeconds %= SECONDS_IN_HOUR;
-    int min = uptimeSeconds / SECONDS_IN_MIN; 
+    long min = uptimeSeconds / SECONDS_IN_MIN; 
     uptimeSeconds %= SECONDS_IN_MIN;
-    int sec = uptimeSeconds;
+    long sec = uptimeSeconds;
     
     // Stores the uptime
     uptime = std::to_string(days) + "d " + std::to_string(hrs) + "h " + std::to_string(min) + "m " + std::to_string(sec) + "s";
@@ -47,13 +47,7 @@ OperatingSystemDetails::OperatingSystemDetails() {
  * Also returns it as a string format
  * Does not take parameters
  */
- string OperatingSystemDetails::to_string() {
-	printf("System name = %s\n", sysName.c_str());
-    printf("Release     = %s\n", release.c_str());
-    printf("Version     = %s\n", version.c_str());
-    printf("Machine     = %s\n", machine.c_str());
-    printf("Uptime = %s \n", uptime.c_str());
-    
+ string OperatingSystemDetails::to_string() {    
     return "System name: " + sysName + "\n" + "Release: " + release + "\n" + "Version: " + version + "\n" + "Machine: " + machine + "\n" + "Uptime: " + uptime + "\n";
  }
  
