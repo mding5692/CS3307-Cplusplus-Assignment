@@ -18,6 +18,12 @@ Process::Process(string pid, string name, string ownerid, string ppid, string ps
 	state = pstate;
 }
 
+ /* Destructor function for Process class
+ */
+Process::~Process() {
+	
+}
+
 /* to_string() function
  * Returns attributes as a string and also prints it out
  * Takes no parameters

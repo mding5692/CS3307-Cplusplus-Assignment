@@ -16,6 +16,7 @@
 class Process {
 	public:
 		Process(std::string pid, std::string name, std::string ownerid, std::string ppid, std::string pstate);
+		~Process();
 		std::string to_string();
 		std::string getProcessID();
 		std::string getProcessName();

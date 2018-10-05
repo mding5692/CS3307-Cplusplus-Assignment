@@ -94,6 +94,12 @@ ProcessList::ProcessList() {
 	}
 }
 
+ /* Destructor function for ProcessList class
+ */
+ProcessList::~ProcessList() {
+	processList.clear();
+}
+
 /* to_string() function
  * Used to return out a string of all attributes 
  * like all the processes inside this list, takes no parameters

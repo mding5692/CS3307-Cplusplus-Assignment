@@ -20,6 +20,12 @@ HostName::HostName() {
 	hostName = string(hostNameCharArr); // Converts char array into a string
 }
 
+/* Destructor function for HostName class
+ */
+HostName::~HostName() {
+	
+}
+
 /* to_string()
  * Prints and returns the hostName 
 * No parameters but returns a string of either the hostname or an empty string if couldnt grab

@@ -14,6 +14,7 @@
 class NetworkInterface {
 	public:
 		NetworkInterface(std::string networkName, std::string address);
+		~NetworkInterface();
 		std::string to_string();
 		std::string getName();
 		std::string getMACAddress();

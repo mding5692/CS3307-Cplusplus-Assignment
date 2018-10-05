@@ -19,6 +19,7 @@
 class NetworkInterfaceList {
 	public:
 		NetworkInterfaceList();
+		~NetworkInterfaceList();
 		std::string to_string();
 		std::vector<NetworkInterface> getListOfNetworkInterfaces();
 	private:

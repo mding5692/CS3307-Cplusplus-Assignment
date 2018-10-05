@@ -17,6 +17,12 @@ NetworkInterface::NetworkInterface(string networkName, string address) {
 	macAddress = address;
 }
 
+/* Destructor function for NetworkInterface class
+ */
+NetworkInterface::~NetworkInterface() {
+	
+}
+
  /* to_string()
  * Prints and returns attributes in NetworkInteface
 * No parameters but returns strings of either the network interface details or an empty string if couldnt grab

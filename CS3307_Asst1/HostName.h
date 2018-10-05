@@ -16,6 +16,7 @@
 class HostName {
 	public:
 		HostName();
+		~HostName();
 		std::string to_string();
 		std::string getHostName();
 	private:

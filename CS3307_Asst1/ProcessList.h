@@ -18,6 +18,7 @@
 class ProcessList {
 	public:
 		ProcessList();
+		~ProcessList();
 		std::string to_string();
 		std::vector<Process> getProcessList(); 
 	private:

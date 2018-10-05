@@ -16,6 +16,7 @@
 class MemoryInfo {
 	public:
 		MemoryInfo();
+		~MemoryInfo();
 		std::string to_string();
 		long getTotalRam();
 		long getFreeRam();

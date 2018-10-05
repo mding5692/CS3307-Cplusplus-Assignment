@@ -17,6 +17,7 @@
 class OperatingSystemDetails {
 	public:
 		OperatingSystemDetails();
+		~OperatingSystemDetails();
 		std::string to_string();
 		std::string getSysName();
 		std::string getRelease();

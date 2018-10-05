@@ -34,6 +34,12 @@ using namespace std;
 	fifteenMinLoad = std::to_string(systemInfo.loads[2]);
  }
  
+ /* Destructor function for ProcInfo class
+ */
+ProcInfo::~ProcInfo() {
+	
+}
+ 
  /* to_string()
  * Prints and returns attributes in ProcInfo
 * No parameters but returns strings of either the processor details or an empty string if couldnt grab

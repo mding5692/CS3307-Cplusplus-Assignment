@@ -17,6 +17,7 @@
 class ProcInfo {
 	public:
 		ProcInfo();
+		~ProcInfo();
 		std::string to_string();
 		std::string getVendor();
 		std::string getModelName();

@@ -65,6 +65,12 @@ NetworkInterfaceList::NetworkInterfaceList() {
 	
 }
 
+/* Destructor function for NetworkInterfaceList class
+ */
+NetworkInterfaceList::~NetworkInterfaceList() {
+	networkInterfaceList.clear();
+}
+
  /* to_string()
  * Prints and returns all network interfaces in NetworkIntefaceList
 * No parameters but returns strings of either all the network interfaces or an empty string if couldnt grab

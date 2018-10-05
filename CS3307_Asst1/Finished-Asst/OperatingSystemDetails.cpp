@@ -43,6 +43,13 @@ OperatingSystemDetails::OperatingSystemDetails() {
     uptime = std::to_string(days) + "d " + std::to_string(hrs) + "h " + std::to_string(min) + "m " + std::to_string(sec) + "s";
 }
 
+/* Destructor function for OperatingSystemDetails class
+ */
+OperatingSystemDetails::~OperatingSystemDetails() {
+	
+}
+
+
 /* to_string() function prints out all the attributes in OperatingSystemDetails class
  * Also returns it as a string format
  * Does not take parameters

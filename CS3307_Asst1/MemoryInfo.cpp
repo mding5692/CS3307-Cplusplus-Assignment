@@ -19,6 +19,12 @@ MemoryInfo::MemoryInfo() {
     freeRam = systemInfo.freeram;
 }
 
+/* Destructor function for MemoryInfo class
+ */
+MemoryInfo::~MemoryInfo() {
+	
+}
+
 /* getTotalRam()
  * getter method for total ram
 * No parameters but returns a long int of the total ram 
